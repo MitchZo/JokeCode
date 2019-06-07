@@ -9,15 +9,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //Dont look at me
             JokieBoi jokieBoi = new JokieBoi();
             MethodInfo[] jokieBoisMethods = typeof(JokieBoi).GetMethods(BindingFlags.Static| BindingFlags.DeclaredOnly| BindingFlags.Public);        
 
-
+            //nothing to see here
             GenerateMenu(jokieBoisMethods);
             
             int selection = -1;
 
-          
+            ///Keep going
             while(selection != jokieBoisMethods.Length + 1){
                 Console.WriteLine("Select Your Jokie Boi:");
                 string rawinput = Console.ReadLine().Trim();
@@ -32,8 +33,10 @@ namespace ConsoleApp1
                 }
             }
 
+            //A little further
         }
 
+        //Not there yest
         static void GenerateMenu(MethodInfo[] jokieBoisMethods)
         {
             for(int i = 1; i <= jokieBoisMethods.Length; i++)
@@ -45,6 +48,8 @@ namespace ConsoleApp1
         }
     }
 
+    //Nailed it
+    //Any functions that you add to this JokieBoi will be included in the stupid little menu that the console prints out.
     public class JokieBoi
     {
         public static void SuperHelloWorld()
