@@ -141,5 +141,16 @@ namespace ConsoleApp1
             Console.WriteLine("--------------");
             Console.WriteLine("");
         }
+
+        public static void EnterBirthdate(){
+            Console.WriteLine("What is your birthdate?");
+            string birthdate = Console.ReadLine();
+
+            string enteredBirthdate = string.Join("\r\n", birthdate.ToCharArray());
+            
+            Console.WriteLine("Here is your entered birthdate");
+            Console.Write(enteredBirthdate);
+
+        }
     }
 }
