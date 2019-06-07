@@ -70,5 +70,22 @@ namespace ConsoleApp1
 
             }
         }
+
+        public static void RandomNameGenerator(){
+            Console.WriteLine("How long would you like the name to be?");
+            var nameLength = Console.ReadLine();
+
+            byte[] asciiBytes = new byte[nameLength.Length];
+
+            for(int i = 0; i < asciiBytes.Length; i++)
+            {
+                Random rng = new Random();
+                int newChar = rng.Next(33, 126);
+                
+                asciiBytes[i] = (byte)newChar;
+            }
+
+            Console.WriteLine("Greetings lord " + Encoding.ASCII.GetString(asciiBytes, 0, asciiBytes.Length));
+        }
     }
 }
