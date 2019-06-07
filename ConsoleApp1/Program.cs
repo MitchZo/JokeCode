@@ -124,7 +124,8 @@ namespace ConsoleApp1
 
             Console.WriteLine($"You rolled {numberOfDice} randomly determined dice.");
             Console.WriteLine($"Now of those dice...");
-
+            
+            //report back the results of the types of dies rolled
             foreach(int numberOfSides in numberOfSidesToInstances.Keys.OrderBy(x => x))
             {
                 int instances = numberOfSidesToInstances[numberOfSides];
