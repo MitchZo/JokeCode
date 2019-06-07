@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -36,7 +38,7 @@ namespace ConsoleApp1
             //A little further
         }
 
-        //Not there yest
+        //Not there yet
         static void GenerateMenu(MethodInfo[] jokieBoisMethods)
         {
             for(int i = 1; i <= jokieBoisMethods.Length; i++)
@@ -86,6 +88,58 @@ namespace ConsoleApp1
             }
 
             Console.WriteLine("Greetings lord " + Encoding.ASCII.GetString(asciiBytes, 0, asciiBytes.Length));
+        }
+
+        public static void DiceRoll(){
+            Console.WriteLine("");
+            Console.WriteLine("--------------");
+            Console.WriteLine("");
+            Console.WriteLine("Rolling Di(c)e...");
+            
+            Random rng = new Random();
+            
+            int result = 0;
+            int numberOfDice = rng.Next(1, 100);            
+            Dictionary<int, int> numberOfSidesToInstances = new Dictionary<int, int>();
+
+            for(int i = 0; i < numberOfDice; i++)
+            {                
+                //determine how many sides are on this die
+                int numSides = rng.Next(2, 50);
+
+                if(numberOfSidesToInstances.ContainsKey(numSides))
+                {
+                    //increment the count of this kind of die
+                    numberOfSidesToInstances[numSides]++;
+                }
+                else
+                {
+                    numberOfSidesToInstances.Add(numSides, 1);
+                }
+
+                                             //outer bound is excluded, so this should be 21 if die is 20-sided
+                int actualRoll = rng.Next(1, numSides + 1);
+                result += actualRoll;
+            }
+
+            Console.WriteLine($"You rolled {numberOfDice} randomly determined dice.");
+            Console.WriteLine($"Now of those dice...");
+
+            foreach(int numberOfSides in numberOfSidesToInstances.Keys.OrderBy(x => x))
+            {
+                int instances = numberOfSidesToInstances[numberOfSides];
+                string verb = "was";
+                if(instances > 1){
+                    verb = "were";
+                }
+
+                Console.WriteLine($"{instances} {verb} {numberOfSides}-sided.");
+            }
+
+            Console.WriteLine($"The result was: {result}!");
+            Console.WriteLine("");
+            Console.WriteLine("--------------");
+            Console.WriteLine("");
         }
     }
 }
