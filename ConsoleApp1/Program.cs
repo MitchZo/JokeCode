@@ -167,7 +167,7 @@ namespace ConsoleApp1
                 $"You were adopted, and Im glad it wasnt by me",
                 $"Think again {dontNeedThis}, think again, because I learned this trick in prison",
                 $"*Weeps openly* *sighs* *collapses*",
-                $"Dont you fucking lie to me {dontNeedThis}.  Ive seen 'How To Train your dragon' 1-3 and I will nightfury your so hard",
+                $"Dont you fucking lie to me {dontNeedThis}.  Ive seen 'How To Train your dragon' 1-3 and I will nightfury you're so hard",
             };
 
             List<string> sincereAppologies = new List<string>()
