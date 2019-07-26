@@ -232,5 +232,26 @@ namespace ConsoleApp1
             Console.Write(enteredBirthdate);
 
         }
+        public static void AlphabatizeName()
+        {
+            Console.WriteLine("please enter names to be alphabitized.");
+            string input = Console.ReadLine();
+            string[] names = input.Split(" ");
+
+            foreach (string name in names)
+            {
+                string word = "";
+                char[] letters = name.ToLower().ToCharArray();
+                Array.Sort(letters);
+                for (int i = 0; i <= letters.Length - 1; i++)
+                {
+                    word = word += letters[i];
+                }
+                Console.WriteLine(word = word + " ");
+            }
+            Console.WriteLine("press any key to continue.");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
